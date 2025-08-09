@@ -41,7 +41,7 @@ mainbox {
 
 imagebox {
     padding:         20px;
-    background-image: url("/home/thiago/wallpapers/736462.png", height);
+    background-image: url("/home/thiago/wallpapers/1357460.png", height);
     orientation:     vertical;
     children:        [ "inputbar", "dummy", "mode-switcher" ];
 }

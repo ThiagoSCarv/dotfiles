@@ -16,7 +16,6 @@ alias la="eza -la --icons --group-directories-first"
 alias ll="eza -l --icons --group-directories-first"
 alias lt="eza --tree --icons"
 
-alias find="fdfind"
 alias grep="rg"
 
 alias cls="clear"
@@ -24,12 +23,15 @@ alias financa="cd ~/finance-control-notion && npx ts-node src/main.ts"
 # Navegação inteligente
 zoxide init fish | source
 alias cd="z"
-
+# ─── Path Correto para fdfind (fd) ────────────────────────────────
+if type -q fdfind
+  alias fd="fdfind"
+end
 # FZF com Ctrl+R para histórico
 if type -q fzf
     bind \cr 'fzf | read -l result; and commandline -r $result'
-  end
-# ~/.config/fish/functions/fzf.fish
+end
+
 function fzf --wraps="fzf"
     # Paste contents of preferred variant here
     set -Ux FZF_DEFAULT_OPTS "
@@ -39,31 +41,6 @@ function fzf --wraps="fzf"
       --color=spinner:#f6c177,info:#9ccfd8
       --color=pointer:#c4a7e7,marker:#eb6f92,prompt:#908caa"
     command fzf
-end
-
-function ff --description 'Fuzzy find files with bat preview; open in $EDITOR'
-    # comando de busca (prefere fd)
-    set -l src_cmd
-    if type -q fd
-        set src_cmd "fd --type f --hidden --follow --exclude .git"
-    else
-        set src_cmd "find . -type f -not -path '*/\.git/*'"
-    end
-
-    # editor padrão
-    set -l editor $EDITOR
-    test -z "$editor"; and set editor nvim
-
-    # usa preview com bat
-    set -l selection (eval $src_cmd | fzf \
-        --height=90% \
-        --layout=reverse \
-        --border \
-        --ansi \
-        --preview "bat --style=numbers --color=always --line-range=:300 {}" \
-        --preview-window=right,60%,border)
-
-    test -n "$selection"; and $editor "$selection"
 end
 
 function fz --description 'Jump to a directory using zoxide + fzf with preview'
@@ -104,9 +81,3 @@ function load_nvm_version --on-variable PWD
         nvm use default >/dev/null 2>&1
     end
 end
-
-# Garante que LTS seja a versão padrão se não houver .nvmrc
-if not test -f .nvmrc
-    nvm use default >/dev/null 2>&1
-end
-source ~/.asdf/asdf.fish
