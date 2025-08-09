@@ -1,0 +1,53 @@
+
+* {
+    primary: #c4a7e7; /* pur */
+    primary-fixed: #9ccfd8; /* cya */
+    primary-fixed-dim: #c4a7e7; /* pur */
+    on-primary: #6e6a86; /* cmt — substitui grn */
+    on-primary-fixed: #1f1d2e; /* cur */
+    on-primary-fixed-variant: #6e6a86; /* cmt — substitui grn */
+    primary-container: #6e6a86; /* cmt — substitui grn */
+    on-primary-container: #9ccfd8; /* cya */
+
+    secondary: #9ccfd8; /* cya */
+    secondary-fixed: #9ccfd8; /* cya */
+    secondary-fixed-dim: #6e6a86; /* cmt */
+    on-secondary: #1f1d2e; /* cur */
+    on-secondary-fixed: #191724; /* bg */
+    on-secondary-fixed-variant: #6e6a86; /* cmt */
+    secondary-container: #6e6a86; /* cmt */
+    on-secondary-container: #9ccfd8; /* cya */
+
+    tertiary: #f6c177; /* yel */
+    tertiary-fixed: #f6c177; /* yel */
+    tertiary-fixed-dim: #c4a7e7; /* pur */
+    on-tertiary: #1f1d2e; /* cur */
+    on-tertiary-fixed: #191724; /* bg */
+    on-tertiary-fixed-variant: #6e6a86; /* cmt */
+    tertiary-container: #6e6a86; /* cmt */
+    on-tertiary-container: #f6c177; /* yel */
+
+    error: #eb6f92; /* red */
+    on-error: #ebbcba; /* ora */
+    error-container: #eb6f92; /* red */
+    on-error-container: #f6c177; /* yel */
+
+    surface: #191724; /* bg */
+    on-surface: #e0def4; /* fgd */
+    on-surface-variant: #6e6a86; /* cmt */
+    outline: #6e6a86; /* cmt */
+    outline-variant: #1f1d2e; /* cur */
+    shadow: #000000;
+    scrim: #000000;
+    inverse-surface: #e0def4; /* fgd */
+    inverse-on-surface: #1f1d2e; /* cur */
+    inverse-primary: #9ccfd8; /* cya — substitui grn */
+
+    surface-dim: #191724; /* bg */
+    surface-bright: #1f1d2e; /* cur */
+    surface-container-lowest: #191724; /* bg */
+    surface-container-low: #1f1d2e; /* cur */
+    surface-container: #1f1d2e; /* cur */
+    surface-container-high: #1f1d2e; /* cur */
+    surface-container-highest: #1f1d2e; /* cur */
+}
