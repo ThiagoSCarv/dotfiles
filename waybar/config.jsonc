@@ -8,7 +8,7 @@
   "height": 40,
   //"spacing": 4,
   "modules-left": ["clock", "tray", "hyprland/workspaces"],
-  "modules-center": ["hyprland/window"],
+  "modules-center": ["hyprland/window", "mpris", "custom/media"],
   "modules-right": [
     "network",
     "bluetooth",
@@ -144,31 +144,54 @@
     "tooltip-format-enumerate-connected": "{device_alias}",
     "on-click-right": "blueman-manager"
   },
-
-  "custom/media": {
-    "format": "{icon} {}",
-    "return-type": "json",
-    "max-length": 45,
-    "format-icons": {
-      "spotify": "",
-      "default": "🎜"
-    },
-    "escape": true,
-    "exec": "$HOME/.config/waybar/mediaplayer.py 2> /dev/null" // Script in resources folder
-    // "exec": "$HOME/.config/waybar/mediaplayer.py --player spotify 2> /dev/null" // Filter player based on name
-  },
-  "custom/spotify": {
-    "exec-if": "pgrep spotify",
-    "exec": "/usr/bin/python3 ~/.config/waybar/scripts/mediaplayer.py --player spotify",
-    "format": " {}",
-    "return-type": "json",
-    "on-click": "playerctl play-pause",
-    "escape": true,
-    "max-length": 40,
-    "on-click": "playerctl -p spotify play-pause",
-    "on-click-right": "killall spotify",
-    "smooth-scrolling-threshold": 10, // This value was tested using a trackpad, it should be lowered if using a mouse.
-    "on-scroll-up": "playerctl -p spotify next",
-    "on-scroll-down": "playerctl -p spotify previous"
-  }
+  
+  "mpris": {
+      "format": "{player_icon} {title} - {artist}",
+      "format-paused": " {title} - {artist}",
+      "player-icons": {
+        "default": "",
+        "mpv": "",
+        "spotify": "",
+        "firefox": ""
+      },
+      "ignored-players": [],
+      "on-click": "playerctl previous",
+      "on-click-right": "playerctl next",
+      "on-click-middle": "playerctl play-pause",
+      "tooltip": true
+   }
+  //"custom/media": {
+  //  "format": "{}",
+  //  "interval": 1,
+  //  "exec": "playerctl metadata --format '{{ title }}'",
+  //  "on-click": "playerctl play-pause",
+  //  "on-click-right": "playerctl next",
+  //  "on-click-middle": "playerctl previous"
+  //}
+  //"custom/media": {
+  //  "format": "{icon} {}",
+  //  "return-type": "json",
+  //  "max-length": 45,
+  //  "format-icons": {
+  //    "spotify": "",
+  //    "default": "🎜"
+  //  },
+  //  "escape": true,
+  //  "exec": "$HOME/.config/waybar/mediaplayer.py 2> /dev/null" // Script in resources folder
+  //  // "exec": "$HOME/.config/waybar/mediaplayer.py --player spotify 2> /dev/null" // Filter player based on name
+  //},
+  //"custom/spotify": {
+  //  "exec-if": "pgrep spotify",
+  //  "exec": "/usr/bin/python3 ~/.config/waybar/scripts/mediaplayer.py --player spotify",
+  //  "format": " {}",
+  //  "return-type": "json",
+  //  "on-click": "playerctl play-pause",
+  //  "escape": true,
+  //  "max-length": 40,
+  //  "on-click": "playerctl -p spotify play-pause",
+  //  "on-click-right": "killall spotify",
+  //  "smooth-scrolling-threshold": 10, // This value was tested using a trackpad, it should be lowered if using a mouse.
+  //  "on-scroll-up": "playerctl -p spotify next",
+  //  "on-scroll-down": "playerctl -p spotify previous"
+  //}
 }

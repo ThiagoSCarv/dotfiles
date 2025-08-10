@@ -4,7 +4,7 @@
   border: none;
   border-radius: 0;
   font-family: "JetBrainsMono NFM ExtraBold";
-  /* font-weight: bold; */
+  font-weight: bold; 
   font-size: 14px;
   min-height: 0;
 }
@@ -60,6 +60,7 @@ tooltip {
 #temperature,
 #workspaces,
 #tray,
+#mpris,
 #memory,
 #backlight {
   background: @base;
@@ -91,6 +92,11 @@ tooltip {
   color: @text;
   border-radius: 0px 8px 8px 0px;
   margin-right: 20px;
+}
+
+#mpris {
+  color: @text;
+  border-radius: 8px;
 }
 
 #tray {
