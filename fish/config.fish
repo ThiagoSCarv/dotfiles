@@ -66,18 +66,4 @@ function fz --description 'Jump to a directory using zoxide + fzf with preview'
         commandline -f repaint
     end
 end
-# -------------------------
-# NVM auto-load via nvm.fish
-# -------------------------
-# Carrega a versão do Node de acordo com o .nvmrc
-function load_nvm_version --on-variable PWD
-    if test -f .nvmrc
-        set node_version (string trim (cat .nvmrc))
-        if not nvm use $node_version >/dev/null 2>&1
-            echo "Instalando Node $node_version..."
-            nvm install $node_version
-        end
-    else
-        nvm use default >/dev/null 2>&1
-    end
-end
+
