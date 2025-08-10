@@ -1,6 +1,6 @@
 #!/usr/bin/fish
 
-set wallpaper_dir ~/.config/hypr/wallpapers
+set wallpaper_dir ~/wallpapers
 
 # Check if the wallpaper directory exists and is not empty
 if test -d $wallpaper_dir; and not test -z (ls $wallpaper_dir)
